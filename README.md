@@ -1,5 +1,5 @@
 # Análisis Léxico y GLC
-*Laboratorio 1 - Compiladores*
+*Laboratorio 1 - Compiladores* \n
 Lizbeth Andrea Herrera Ortega - 1246024
 Marcela Nicole Letran Lee - 1102124
 
