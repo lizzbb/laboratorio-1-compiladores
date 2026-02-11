@@ -8,11 +8,11 @@ Estado Inicial: { S }
 Terminales: {hex, oct, bin, varhex, varbin, varoct, id, operadores}  
 No Terminales: {S, T, F, O, D}  
 Producciones: {  
-| S → DO   
-| D → hex id = varhex | oct id = varoct | bin id = varbin   
-| O → O+T | O-T | T   
-| T → T*F | T/F | F  
-| F → ( O ) | varhex | varoct | varbin  
+&nbsp; &nbsp; S → DO   
+&nbsp; &nbsp; D → hex id = varhex | oct id = varoct | bin id = varbin   
+&nbsp; &nbsp; O → O+T | O-T | T   
+&nbsp; &nbsp; T → T*F | T/F | F  
+&nbsp; &nbsp; F → ( O ) | varhex | varoct | varbin  
 }  
 
 # Diseño de Tokens (Expresiones Regulares)
@@ -23,13 +23,13 @@ Producciones: {
    C = caracteres especiales*  
 - - - - - - - - - - - - - - - - - - - - - - - 
 Palabras Reservadas  
-| hex -> "varhex"  
-| oct -> "varoct"  
-| bin -> "varbin"  
+&nbsp; &nbsp; hex -> "varhex"  
+&nbsp; &nbsp; oct -> "varoct"  
+&nbsp; &nbsp; bin -> "varbin"  
     
 operadores -> '+', '-', '/', '*', '(', ')'   
 espacios en blanco -> "/n", "/f", ' '  
-comentario -> (D | L | C)*"/n"  
+comentario -> (D | L | C)* *"/n"  
   
 id -> ( _ | D | L )⁺  
 varhex -> (D | M)⁺  
