@@ -39,4 +39,14 @@ igual -> '='
 error  
 
 # Manejo de errores
-Por medio de un token designado 'error', se guarda todo aquello que no es aceptado por las expresiones regulares y la gramática libre de contexto. Se almacena el caracter no soportado, número de línera y número de columna donde se encontró sin interrumpir la ejecución del programa. Al finalizar, se muestran los errores con la información almacenada, y se determina si la cadena fue aceptada o no. 
+Los errores se manejan bajo dos escenarios, durante el análisis léxico y el análisis sintáctico; primero validando que los símbolos pertenezcan al lenguaje, y después que estén organizados correctamente.
+1. Manejo de Error Léxico (Tokenización)
+El primer filtro se da en el Scanner, validando el alfabeto del lenguaje 
+•	En lugar de detener la ejecución al encontrar un carácter desconocido, si el caracter leído no coincide con ninguna expresión regular, se tokeniza como TK_E (token de error)
+•	Al crear el token de error en el momento de la lectura, se guardan las coordenadas (fila, columna); indicando dónde se dejó de reconocer el alfabeto antes de intentar cualquier análisis gramatical.
+2. Manejo de Error Sintáctico (GR)
+Una vez generada la lista de tokens, el Parser valida la estructura lógica utilizando reglas de producción 
+•	Validación del cumplimiento de la gramática. Se intenta construir el árbol de derivación, si en algún punto el token actual no cumple la regla de producción esperada se retorna False
+•	Se captura el token del error cuando la derivación gramatical se rompe, se almacena el token actual rechazando la cadena no porque sea caracteres inválidos, sino porque la secuencia de tokens no pertenece al lenguaje generado por la gramática.
+•	Si un token numérico no cumple con la base declarada (hex, oct, bin), se trata como un error de sintaxis, rechazando la producción, validando que se reconozca el formato
+
