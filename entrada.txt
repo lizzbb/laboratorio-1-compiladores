@@ -1,0 +1,11 @@
+hex A = 1F
+oct B = 77
+bin C = 101
+hex D = 1A + 2B
+oct E = 7 * (2 + 1)
+bin F = (11 + 10) / 1
+oct error_base = 8
+bin error_base = 102
+
+#comentario
+no comentario
